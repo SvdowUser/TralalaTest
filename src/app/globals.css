@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
+@import "@solana/wallet-adapter-react-ui/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pump-green: #00ff88;
+  --pump-dark: #0a0a0f;
+  --pump-card: #12121a;
+  --pump-border: #1e1e2e;
+}
+
+body {
+  background-color: var(--pump-dark);
+  color: #e5e7eb;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ── Wallet adapter overrides ── */
+.wallet-adapter-button {
+  background: transparent !important;
+  border: 1px solid var(--pump-green) !important;
+  color: var(--pump-green) !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 0.875rem !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-button:hover:not([disabled]) {
+  background: rgba(0, 255, 136, 0.1) !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: var(--pump-card) !important;
+  border: 1px solid var(--pump-border) !important;
+}
+
+/* ── Glow animation for the random number ── */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+  }
+  50% {
+    text-shadow: 0 0 40px #00ff88, 0 0 80px #00ff88, 0 0 120px #00ff88;
+  }
+}
+
+.glow-number {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin-ring {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-ring {
+  animation: spin-ring 1s linear infinite;
+}
